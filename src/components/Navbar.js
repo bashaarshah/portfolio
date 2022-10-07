@@ -12,11 +12,13 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
+import { pages } from '../config';
+import { Router } from 'react-router-dom'
 
-const pages = ['Products', 'Pricing', 'Blog'];
+
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
-const ResponsiveAppBar = () => {
+const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -36,26 +38,27 @@ const ResponsiveAppBar = () => {
   };
 
   return (
-    <AppBar position="static" color='transparent'>
-      <Container maxWidth="xl">
-        <Toolbar disableGutters>
+    <AppBar position="static">
+      <Container maxWidth="xl" style={{backgroundColor: "#1a202c"}}>
+        <Toolbar disableGutters >
           <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           <Typography
             variant="h6"
             noWrap
             component="a"
-            href="/"
+                      href="/"
+                      style={{ fontFamily: "'Open Sans', sans-serif"}}
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
               fontFamily: 'monospace',
               fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'white',
+            
+              color: 'inherit',
               textDecoration: 'none',
             }}
           >
-            LOGO
+            Bashaar Shah
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -107,7 +110,7 @@ const ResponsiveAppBar = () => {
               fontFamily: 'monospace',
               fontWeight: 700,
               letterSpacing: '.3rem',
-              color: '#1a202c',
+              color: 'inherit',
               textDecoration: 'none',
             }}
           >
@@ -159,4 +162,4 @@ const ResponsiveAppBar = () => {
     </AppBar>
   );
 };
-export default ResponsiveAppBar;
+export default Navbar;
