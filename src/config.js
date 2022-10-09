@@ -1,7 +1,13 @@
+import Redirect from "./components/Redirect"
+import Work from "./pages/Work"
+
+
+// schema:
+// [page => [label, location, (jsx component || url) ] ]
 export const pages = [
-    ["Work", "/"],
-    ["About", "/about"],
-    ["Resume", "/resume"]
+    { label: "Work", location: "/", component: <Work /> },
+    { label: "About", location: "about", component: <div /> },
+    { label: "Resume", location: "resume", component: <Redirect href={"https://google.com"}/> }
 ]
 
 export const work = [
@@ -34,4 +40,3 @@ export const work = [
 
     }
 ]
-  

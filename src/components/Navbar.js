@@ -13,7 +13,7 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import { pages } from '../config';
-import { Router } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -38,7 +38,7 @@ const Navbar = () => {
   };
 
   return (
-    <AppBar position="static" style={{backgroundColor: "#1a202c"}}>
+    <AppBar position="static" style={{ backgroundColor: "#1a202c" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters >
           <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
@@ -46,14 +46,14 @@ const Navbar = () => {
             variant="h6"
             noWrap
             component="a"
-                      href="/"
-                      style={{ fontFamily: "'Open Sans', sans-serif"}}
+            href="/"
+            style={{ fontFamily: "'Open Sans', sans-serif" }}
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
               fontFamily: 'monospace',
               fontWeight: 700,
-            
+
               color: 'inherit',
               textDecoration: 'none',
             }}
@@ -90,10 +90,12 @@ const Navbar = () => {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+              {pages.map(({label, location, component}) => (
+                <Link style={{textDecoration: "none", color: "black"}} to={location}>
+                <MenuItem key={label} onClick={handleCloseNavMenu}>
+                  <Typography  textAlign="center">{label}</Typography>
                 </MenuItem>
+                </Link>
               ))}
             </Menu>
           </Box>
@@ -102,7 +104,8 @@ const Navbar = () => {
             variant="h5"
             noWrap
             component="a"
-            href=""
+            style={{ fontFamily: "'Open Sans', sans-serif" }}
+            href="/"
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },
@@ -114,17 +117,20 @@ const Navbar = () => {
               textDecoration: 'none',
             }}
           >
-            LOGO
+
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
+          
+            {pages.map(({label, location}) => (
+              <Link style={{textDecoration: "none", color: "white"}} to={location}>
               <Button
-                key={page}
+                key={label}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                {page}
+                {label}
               </Button>
+              </Link>
             ))}
           </Box>
 
