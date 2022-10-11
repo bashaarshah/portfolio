@@ -14,7 +14,7 @@ import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import { pages } from '../config';
 import { Link } from 'react-router-dom';
-
+import { Grid } from '@mui/material';
 
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
@@ -90,11 +90,11 @@ const Navbar = () => {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {pages.map(({label, location, component}) => (
-                <Link style={{textDecoration: "none", color: "black"}} to={location}>
-                <MenuItem key={label} onClick={handleCloseNavMenu}>
-                  <Typography  textAlign="center">{label}</Typography>
-                </MenuItem>
+              {pages.map(({ label, location, component }) => (
+                <Link style={{ textDecoration: "none", color: "black" }} to={location}>
+                  <MenuItem key={label} onClick={handleCloseNavMenu}>
+                    <Typography textAlign="center">{label}</Typography>
+                  </MenuItem>
                 </Link>
               ))}
             </Menu>
@@ -119,19 +119,20 @@ const Navbar = () => {
           >
 
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-          
-            {pages.map(({label, location}) => (
-              <Link style={{textDecoration: "none", color: "white"}} to={location}>
-              <Button
-                key={label}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                {label}
-              </Button>
-              </Link>
-            ))}
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, marginRight: 1.5}}>
+            <Grid container justifyContent="flex-end">
+              {pages.map(({ label, location }) => (
+                <Link style={{ textDecoration: "none", color: "white" }} to={location}>
+                  <Button
+                    key={label}
+                    onClick={handleCloseNavMenu}
+                    sx={{ my: 2, color: 'white', display: 'block' }}
+                  >
+                    {label}
+                  </Button>
+                </Link>
+              ))}
+            </Grid>
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
