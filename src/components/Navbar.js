@@ -149,7 +149,7 @@ const Navbar = () => {
 
           </Typography>
           <Box sx={{ flexGrow: 1,  display: { xs: 'none', md: 'flex' } }}>
-           
+          <Grid container justifyContent="flex-end">
             {pages.map(({ label, location }) => (
               <Link style={{ textDecoration: "none", color: "white" }} to={location}>
                 <Button
@@ -161,7 +161,7 @@ const Navbar = () => {
                 </Button>
               </Link>
             ))}
-             
+             </Grid>
           </Box>
 
 
