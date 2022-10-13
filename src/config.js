@@ -12,30 +12,23 @@ export const pages = [
 
 export const work = [
     {
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Ford_logo_flat.svg/2560px-Ford_logo_flat.svg.png",
+        image: "https://cdn.dribbble.com/users/469697/screenshots/6449432/ford_white_4x.jpg",
         title: "Ford Motor Company",
-        jobTitle: "Software Engineer",
+        jobTitle: "Full Stack Software Engineer",
+        description: "Currently developing and deploying new features everyday for fordpro.com. Managed and Provisioned Subscription Services for Ford vehicles all around the world. ADD TECHSTACK WITH DROPDOWN"
+
+    },
+    {
+        image: "http://ww1.prweb.com/prfiles/2017/03/08/14257260/doxim-logo.jpg",
+        title: "Doxim",
+        jobTitle: "Junior Programming Developer",
         description: "..."
 
     },
     {
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Ford_logo_flat.svg/2560px-Ford_logo_flat.svg.png",
-        title: "Ford Motor Company",
-        jobTitle: "Software Engineer",
-        description: "..."
-
-    },
-    {
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Ford_logo_flat.svg/2560px-Ford_logo_flat.svg.png",
-        title: "Ford Motor Company",
-        jobTitle: "Software Engineer",
-        description: "..."
-
-    },
-    {
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Ford_logo_flat.svg/2560px-Ford_logo_flat.svg.png",
-        title: "Ford Motor Company",
-        jobTitle: "Software Engineer",
+        image: "https://mma.prnewswire.com/media/1830002/Comerica_Logo.jpg?p=facebook",
+        title: "Comerica",
+        jobTitle: "Software Engineering and Automation Engineer",
         description: "..."
 
     }
