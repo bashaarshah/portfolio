@@ -14,6 +14,7 @@ import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import { pages } from '../config';
 import { Link } from 'react-router-dom';
+import { Grid } from '@mui/material';
 
 
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -41,7 +42,35 @@ const Navbar = () => {
     <AppBar position="static" style={{ backgroundColor: "#1a202c" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters >
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+          <Box sx={{ flexGrow: 0 }}>
+            <Tooltip title="Open settings">
+              <IconButton onClick={handleOpenUserMenu} sx={{ flexGrow : 1, p: 2 }}>
+                <Avatar alt="Bashaar Shah" src="/static/images/avatar/2.jpg" />
+              </IconButton>
+            </Tooltip>
+            <Menu
+              sx={{ mt: '45px' }}
+              id="menu-appbar"
+              anchorEl={anchorElUser}
+              anchorOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              open={Boolean(anchorElUser)}
+              onClose={handleCloseUserMenu}
+            >
+              {settings.map((setting) => (
+                <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                  <Typography textAlign="center">{setting}</Typography>
+                </MenuItem>
+              ))}
+            </Menu>
+          </Box>
           <Typography
             variant="h6"
             noWrap
@@ -90,11 +119,11 @@ const Navbar = () => {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {pages.map(({label, location, component}) => (
-                <Link style={{textDecoration: "none", color: "black"}} to={location}>
-                <MenuItem key={label} onClick={handleCloseNavMenu}>
-                  <Typography  textAlign="center">{label}</Typography>
-                </MenuItem>
+              {pages.map(({ label, location }) => (
+                <Link style={{ textDecoration: "none", color: "black" }} to={location}>
+                  <MenuItem key={label} onClick={handleCloseNavMenu}>
+                    <Typography textAlign="center">{label}</Typography>
+                  </MenuItem>
                 </Link>
               ))}
             </Menu>
@@ -119,50 +148,23 @@ const Navbar = () => {
           >
 
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-          
-            {pages.map(({label, location}) => (
-              <Link style={{textDecoration: "none", color: "white"}} to={location}>
-              <Button
-                key={label}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                {label}
-              </Button>
+          <Box sx={{ flexGrow: 1,  display: { xs: 'none', md: 'flex' } }}>
+           
+            {pages.map(({ label, location }) => (
+              <Link style={{ textDecoration: "none", color: "white" }} to={location}>
+                <Button
+                  key={label}
+                  onClick={handleCloseNavMenu}
+                  sx={{ justifyContent: 'flex-end', my: 2, color: 'white', display: 'block' }}
+                >
+                  {label}
+                </Button>
               </Link>
             ))}
+             
           </Box>
 
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Bashaar Shah" src="/static/images/avatar/2.jpg" />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: '45px' }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
+
         </Toolbar>
       </Container>
     </AppBar>
